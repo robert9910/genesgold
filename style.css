@@ -1,0 +1,653 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #000000;
+    padding: 10px 0;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+/* Estilos para la navegación */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 2em;
+}
+
+nav ul li a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos para los iconos en la barra de navegación */
+nav ul li a .icon {
+    width: 2rem; /* Tamaño de icono base */
+    height: 2rem; /* Tamaño de icono base */
+}
+
+/* Estilos para los iconos en el carrusel */
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+    width: 2rem; /* Tamaño de icono base */
+    height: 2rem; /* Tamaño de icono base */
+}
+
+/* Ajuste de estilos para pantallas grandes */
+@media (min-width: 992px) {
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+        max-height: 600px; /* Altura máxima para las imágenes en pantallas grandes */
+    }
+    
+    /* Ajuste de tamaño de iconos para pantallas grandes */
+    nav ul li a .icon {
+        width: 2.5rem; /* Tamaño de icono para pantallas grandes */
+        height: 2.5rem; /* Tamaño de icono para pantallas grandes */
+    }
+}
+
+nav ul li a span {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+nav ul li a:hover span {
+    opacity: 1;
+}
+
+/* Estilos para el logotipo */
+.logo {
+    margin-right: 20px;
+}
+
+.logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+/* Estilos para la sección de héroe */
+.hero {
+    background-image: url('hero-bg.jpg');
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+/* Estilos para la sección de características */
+.features {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 40px;
+}
+
+.product {
+    margin-bottom: 40px;
+}
+
+.product img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/* Estilos para la sección Acerca de */
+.about {
+    background-color: #f9f9f9;
+    padding: 100px 0;
+}
+
+.about h2 {
+    margin-bottom: 40px;
+}
+
+/* Estilos para la sección de contacto */
+.contact {
+    padding: 100px 0;
+    background-color: #f9f9f9;
+}
+
+.contact h2 {
+    margin-bottom: 40px;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact-form button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #e3c971;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
+    background-color: #f4e19d;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Animaciones */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Clases de animación */
+.animate-slideInDown {
+    animation: slideInDown 1s ease forwards;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Clase de animación específica */
+.animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Animaciones específicas para cada sección */
+#home.animate-visible h2,
+#home.animate-visible p,
+#home.animate-visible .btn {
+    animation: fadeInUp 1s ease forwards;
+}
+
+#products.animate-visible .product {
+    animation: fadeInLeft 1s ease forwards;
+}
+
+#about.animate-visible h2,
+#about.animate-visible p {
+    animation: slideInRight 1s ease forwards;
+}
+
+#contact.animate-visible form {
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Media queries para dispositivos móviles */
+@media screen and (max-width: 767px) {
+    nav {
+        flex-direction: column; /* Cambia la dirección de los elementos a columna */
+        align-items: center; /* Centra los elementos horizontalmente */
+    }
+
+    nav ul {
+        flex-direction: row; /* Cambia la dirección de los elementos a fila */
+        justify-content: center; /* Centra los elementos horizontalmente */
+    }
+
+    nav ul li {
+        margin-right: 1rem; /* Añade espacio entre elementos de la lista */
+    }
+
+    nav ul li:last-child {
+        margin-right: 0; /* Elimina el margen derecho del último elemento */
+    }
+
+    nav ul li a .icon {
+        /* Ajustar tamaño de iconos para dispositivos móviles */
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    
+    .container {
+        padding: 0 1rem; /* Ajusta el padding horizontal del contenedor */
+    }
+}
+/* Estilos para el carrusel */
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: auto; /* Restaurar el ancho automático */
+    max-width: 100%; /* Ajustar el ancho máximo al 100% */
+    height: auto; /* Mantener la proporción de aspecto */
+    margin: auto; /* Centrar horizontalmente */
+}
+
+/* Ajuste de estilos para pantallas grandes */
+@media (min-width: 992px) {
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+        max-height: 600px; /* Altura máxima para las imágenes en pantallas grandes */
+    }
+}
+
+/* Estilos para los iconos */
+.navbar-nav li a .icon {
+    width: 5em; /* Tamaño de icono deseado */
+    height: 2rem; /* Tamaño de icono deseado */
+}
+
+/* Estilos para el carrusel */
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+
+.carousel-inner {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    flex: 0 0 auto; /* Permitir que los elementos se ajusten automáticamente */
+}
+
+.carousel-item img {
+    max-width: 100%; /* Ajustar el ancho máximo de las imágenes */
+    height: auto; /* Mantener la proporción de aspecto */
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+
+@media screen and (max-width: 767px) {
+    nav ul li a .icon {
+        /* Ajustar tamaño de iconos para dispositivos móviles */
+        width: 2em;
+        height: 2em;
+      margin-bottom: 10PX/* Agregar un pequeño espacio hacia abajo */
+    }
+}
+
+.socials-container {
+  width: 100%; /* Ajusta el ancho según sea necesario */
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 20px 40px;
+  background-color: #333333;
+}
+
+.social {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgb(194, 194, 194);
+}
+
+/* Estilos hover */
+.twitter:hover {
+  background: linear-gradient(45deg, #66757f, #00acee, #36daff, #dbedff);
+}
+
+.facebook:hover {
+  background: linear-gradient(45deg, #134ac0, #316ff6, #78a3ff);
+}
+
+.google-plus:hover {
+  background: linear-gradient(45deg, #872419, #db4a39, #ff7061);
+}
+
+.instagram:hover {
+  background: #f09433;
+  background: -moz-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+}
+
+.social svg {
+  fill: white;
+  height: 20px;
+}
+
+/* Estilos para la tarjeta */
+.card {
+  position: relative;
+  width: 300px; /* Ancho de la tarjeta */
+  height: 300px; /* Altura de la tarjeta */
+  border: none;
+  overflow: hidden; /* Evita que las imágenes se salgan del contenedor */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  margin: 0 auto; /* Centra la tarjeta horizontalmente */
+}
+
+.card:hover {
+  width: 300px; /* Mantener el tamaño al hacer hover */
+}
+
+/* Estilos para la imagen circular */
+.card .container-image {
+  position: absolute;
+  background: #e7e7e7;
+  width: 350px; /* Ancho de la imagen circular */
+  height: 350px; /* Altura de la imagen circular */
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 3px 1px #1818183d, 2px 2px 3px #18181865, inset 2px 2px 2px #ffffff;
+  transition: all .3s ease-in-out, opacity .3s;
+  transition-delay: .6s, 0s;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+
+.card:hover .container-image {
+  opacity: 0;
+  border-radius: 8px;
+  transition-delay: 0s, .6s;
+}
+
+/* Estilos para la imagen circular dentro de la tarjeta */
+.card .container-image .image-circle {
+  width: 300px; /* Ancho de la imagen circular */
+  height: auto;
+  object-fit: cover;
+  filter: drop-shadow(2px 2px 2px #1818188a);
+  transition: all .3s ease-in-out;
+  transition-delay: .4s;
+}
+
+.card:hover .container-image .image-circle {
+  opacity: 0;
+  transition-delay: 0s;
+}
+
+/* Estilos para el contenido de la tarjeta */
+.card .content {
+  position: relative;
+  background: #e7e7e7;
+  padding: 20px;
+  width: 250px; /* Ancho del contenido */
+  height: 250px; /* Altura del contenido */
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 3px 1px #1818183d, 2px 2px 3px #18181865, inset 2px 2px 2px #ffffff;
+  visibility: hidden;
+  transition: .3s ease-in-out;
+  transition-delay: 0s;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+
+.card:hover .content {
+  visibility: visible;
+  transition-delay: .5s;
+}
+
+/* Estilos para los detalles dentro del contenido de la tarjeta */
+.card .content .detail {
+  opacity: 0;
+  transition: all .3s ease-in-out;
+  transition-delay: 0s;
+}
+
+.card:hover .content .detail {
+  color: #181818;
+  opacity: 1;
+  transition: 1s;
+  transition-delay: .3s;
+}
+
+/* Estilos para los elementos dentro de los detalles */
+.card .content .detail span {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.card .content .detail button {
+  background: #b8854b;
+  margin-top: auto;
+  width: 75px;
+  height: 25px;
+  color: #ffffff;
+  font-size: 13px;
+  border: none;
+  border-radius: 8px;
+  transition: .3s ease-in-out;
+}
+
+.card .content .detail button:hover {
+  background: #d39f63;
+}
+
+/* Estilos para la imagen del producto dentro del contenido de la tarjeta */
+.card .content .product-image {
+  width: 100%;
+  height: auto;
+}
+
+.card .content .product-image .box-image {
+  display: flex;
+}
+
+.card .content .product-image .box-image .img-product {
+  margin: auto;
+  max-width: 100%; /* Ancho máximo de la imagen del producto */
+  max-height: 100%; /* Altura máxima de la imagen del producto */
+}
+
+/* Estilos adicionales */
+.fil-shoes1, .fil-shoes2 {
+  fill: #333333;
+}
+
+/* Estilos generales */
+.u-clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.u-section-1 {
+  padding: 20px 0;
+}
+
+.u-sheet {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Estilos de las imágenes */
+.u-image {
+  background-size: cover;
+  background-position: center center;
+}
+
+.u-image-1 {
+  background-image: url('https://cdn.glitch.global/3e75eca9-c406-491e-94da-c31e27dafaf9/WhatsApp%20Image%202024-03-25%20at%206.04.06%20PM%20(2).jpeg?v=1711498600491');
+}
+
+.u-image-2 {
+  background-image: url('https://cdn.glitch.global/3e75eca9-c406-491e-94da-c31e27dafaf9/d7b50841-851f-4177-ab86-4f920631f242.jpeg?v=1711433429120');
+}
+
+/* Estilos de la disposición del contenido */
+.u-layout {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.u-layout-col {
+  flex: 1;
+}
+
+.u-size-30 {
+  width: 100%; /* Por defecto, ocupa el 100% del ancho */
+}
+
+@media (min-width: 768px) {
+  .u-size-30 {
+    width: 50%; /* Cuando el ancho de la pantalla es de al menos 768px, ocupa el 50% del ancho */
+  }
+}
+
+.u-container-layout {
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+/* Estilos de los textos y botones */
+.u-text {
+  margin-bottom: 10px;
+}
+
+.u-text-1,
+.u-text-3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.u-text-2,
+.u-text-4 {
+  font-size: 16px;
+}
+
+.u-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.u-btn-rectangle {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.u-btn-2 {
+  border: 2px solid #3498db;
+  color: #3498db;
+}
+
+/* Estilos de la disposición de las celdas */
+.u-layout-row {
+  display: flex;
+}
+
+.u-layout-cell {
+  flex: 1;
+}
+
+.u-left-cell {
+  text-align: left;
+}
+
+.u-right-cell {
+  text-align: right;
+}
